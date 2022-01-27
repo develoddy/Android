@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import com.example.swiftnetworkandroid.R
-import com.example.swiftnetworkandroid.ui.omboarding.fragment.LoginFragment
+import com.example.swiftnetworkandroid.scenes.omboarding.login.fragment.LoginFragment
 
 //TODO: Activity
 class MainActivity : AppCompatActivity() {

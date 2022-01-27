@@ -1,28 +1,25 @@
-package com.example.swiftnetworkandroid.ui.omboarding.fragment
+package com.example.swiftnetworkandroid.scenes.omboarding.login.fragment
 
-import android.R.attr.name
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.example.swiftnetworkandroid.R
 import com.example.swiftnetworkandroid.core.Resource
-
 import com.example.swiftnetworkandroid.data.remote.LoginDataSource
 import com.example.swiftnetworkandroid.presentation.LoginViewModel
 import com.example.swiftnetworkandroid.presentation.LoginViewModelFactory
 import com.example.swiftnetworkandroid.repository.LoginRepositoryImpl
 import com.example.swiftnetworkandroid.repository.RetrofitClient
-import com.example.swiftnetworkandroid.resources.AuthManager
-import com.example.swiftnetworkandroid.ui.general.tabs.TabsActivity
-
+import com.example.swiftnetworkandroid.scenes.omboarding.login.LoginActivity
+import com.example.swiftnetworkandroid.scenes.omboarding.login.LoginContract
+import com.example.swiftnetworkandroid.scenes.omboarding.login.LoginPresenter
+import com.example.swiftnetworkandroid.ui.omboarding.fragment.RegisterFragment
 
 //TODO: Fragment
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -31,11 +28,19 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private lateinit var password: EditText
 
+
+    var ac = LoginActivity()
+    var presenter: LoginContract.Presenter? = LoginPresenter(ac)
+
     // TODO: Dependency injection to create a single instance.
     //  It serves to not have implementation logic within each of the modules.
-    private val viewModel by viewModels<LoginViewModel> { LoginViewModelFactory(LoginRepositoryImpl(
-        LoginDataSource(RetrofitClient.webservice)
-    )) }
+    private val viewModel by viewModels<LoginViewModel> {
+        LoginViewModelFactory(
+            LoginRepositoryImpl(
+                LoginDataSource(RetrofitClient.webservice)
+            )
+        )
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -75,7 +80,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             val email    = this.email.text.toString()
             val password = this.password.text.toString()
+            presenter?.presenterGetData("xx", "ddd")
 
+            /*
             viewModel.fetchUserToken(email, password).observe(viewLifecycleOwner, Observer { result ->
                 when( result ) {
                     is Resource.Loading -> {
@@ -88,17 +95,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                         Log.d("LiveData", "${result.exception}")
                     }
                 }
-            })
-
-            //val validate = auth.login( email.text.toString(), password.text.toString() )
-            //if ( validate ) {
-                //requireActivity().run {
-                    //startActivity(Intent(this, TabsActivity::class.java))
-                    //finish()
-                //}
-            //} else {
-                //Toast.makeText(activity, "!Email or password incorrect!", Toast.LENGTH_SHORT).show()
-            //}
+            })*/
         }
     }
 }
