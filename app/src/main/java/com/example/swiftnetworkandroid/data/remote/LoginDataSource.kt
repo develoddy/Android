@@ -6,7 +6,5 @@ import retrofit2.Call
 
 //TODO: DataSource -> WebService
 class LoginDataSource( private val webService: WebService ) {
-
     suspend fun getToken( email:String, password:String  ): ResultLogin = webService.getToken( email, password )
-
 }
