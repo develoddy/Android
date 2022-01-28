@@ -24,13 +24,10 @@ import com.example.swiftnetworkandroid.ui.omboarding.fragment.RegisterFragment
 //TODO: Fragment
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
+    // TODO: PROPERTIES
     private lateinit var email: EditText
-
     private lateinit var password: EditText
-
-
-    var ac = LoginActivity()
-    var presenter: LoginContract.Presenter? = LoginPresenter(ac)
+    private var presenter: LoginContract.Presenter? = LoginPresenter(LoginActivity())
 
     // TODO: Dependency injection to create a single instance.
     //  It serves to not have implementation logic within each of the modules.
@@ -42,9 +39,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         )
     }
 
+
+
+
+    // TODO: FUNCTIONS
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         this.setupView(view)
         this.login(view)
         this.register(view)
@@ -82,7 +82,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val password = this.password.text.toString()
             presenter?.presenterGetData("xx", "ddd")
 
-            /*
+
             viewModel.fetchUserToken(email, password).observe(viewLifecycleOwner, Observer { result ->
                 when( result ) {
                     is Resource.Loading -> {
@@ -95,7 +95,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                         Log.d("LiveData", "${result.exception}")
                     }
                 }
-            })*/
+            })
         }
     }
 }
