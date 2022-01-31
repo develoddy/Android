@@ -1,4 +1,4 @@
-package com.example.swiftnetworkandroid.scenes.omboarding.login.fragment
+package com.example.swiftnetworkandroid.ui.omboarding.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -11,15 +11,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.example.swiftnetworkandroid.R
 import com.example.swiftnetworkandroid.core.Resource
-import com.example.swiftnetworkandroid.data.remote.LoginDataSource
-import com.example.swiftnetworkandroid.presentation.LoginViewModel
-import com.example.swiftnetworkandroid.presentation.LoginViewModelFactory
-import com.example.swiftnetworkandroid.repository.LoginRepositoryImpl
+import com.example.swiftnetworkandroid.data.remote.login.LoginDataSource
+import com.example.swiftnetworkandroid.viewmodel.LoginViewModel
+import com.example.swiftnetworkandroid.viewmodel.LoginViewModelFactory
+import com.example.swiftnetworkandroid.repository.login.LoginRepositoryImpl
 import com.example.swiftnetworkandroid.repository.RetrofitClient
-import com.example.swiftnetworkandroid.scenes.omboarding.login.LoginActivity
-import com.example.swiftnetworkandroid.scenes.omboarding.login.LoginContract
-import com.example.swiftnetworkandroid.scenes.omboarding.login.LoginPresenter
-import com.example.swiftnetworkandroid.ui.omboarding.fragment.RegisterFragment
 
 //TODO: Fragment
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -27,10 +23,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     // TODO: PROPERTIES
     private lateinit var email: EditText
     private lateinit var password: EditText
-    private var presenter: LoginContract.Presenter? = LoginPresenter(LoginActivity())
-
-    // TODO: Dependency injection to create a single instance.
-    //  It serves to not have implementation logic within each of the modules.
     private val viewModel by viewModels<LoginViewModel> {
         LoginViewModelFactory(
             LoginRepositoryImpl(
@@ -40,9 +32,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
 
-
-
-    // TODO: FUNCTIONS
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         this.setupView(view)
@@ -50,7 +39,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         this.register(view)
     }
 
-    //TODO: add values a properties email & password.
     private fun setupView(view: View) {
         email = view.findViewById(R.id.email_et)
         password = view.findViewById(R.id.password_et)
@@ -59,7 +47,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     }
 
-    //TODO: OnClick Register.
+
     private fun register(view: View) {
         val button = view.findViewById<Button>(R.id.account_btn)
         button.setOnClickListener {
@@ -70,18 +58,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
     }
 
-    //TODO: OnClick Login.
+    // TODO: SE LLAMA AL VIEWMODEL
     private fun login(view: View) {
         val loginBtn = view.findViewById<Button>(R.id.login_btn)
         loginBtn.setOnClickListener {
-            //val auth = AuthManager()
             email = view.findViewById(R.id.email_et)
             password = view.findViewById(R.id.password_et)
 
             val email    = this.email.text.toString()
             val password = this.password.text.toString()
-            presenter?.presenterGetData("xx", "ddd")
-
 
             viewModel.fetchUserToken(email, password).observe(viewLifecycleOwner, Observer { result ->
                 when( result ) {

@@ -1,9 +1,10 @@
-package com.example.swiftnetworkandroid.repository
+package com.example.swiftnetworkandroid.repository.login
 
 import com.example.swiftnetworkandroid.data.model.ResultLogin
-import retrofit2.Call
 
-//TODO: Será el encargado de ir a buscar la información
+// TODO: INTERFACE REPOSITORY
 interface LoginRepository {
+
+    /**  SERA EL ENCARGADO DE IR A BUSCAR LA INFORMACIÓN **/
     suspend fun getToken(email:String, password:String): ResultLogin
 }

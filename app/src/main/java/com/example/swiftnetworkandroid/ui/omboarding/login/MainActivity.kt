@@ -1,16 +1,14 @@
-package com.example.swiftnetworkandroid.ui.omboarding
+package com.example.swiftnetworkandroid.ui.omboarding.login
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import com.example.swiftnetworkandroid.R
-import com.example.swiftnetworkandroid.scenes.omboarding.login.fragment.LoginFragment
+import com.example.swiftnetworkandroid.ui.omboarding.fragment.LoginFragment
 
 //TODO: Activity
 class MainActivity : AppCompatActivity() {
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

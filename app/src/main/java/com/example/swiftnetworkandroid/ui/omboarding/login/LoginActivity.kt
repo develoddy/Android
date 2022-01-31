@@ -1,25 +1,18 @@
-package com.example.swiftnetworkandroid.scenes.omboarding.login
+package com.example.swiftnetworkandroid.ui.omboarding.login
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import com.example.swiftnetworkandroid.R
-import com.example.swiftnetworkandroid.scenes.omboarding.login.fragment.LoginFragment
+import com.example.swiftnetworkandroid.ui.omboarding.fragment.LoginFragment
 
-class LoginActivity: AppCompatActivity(), LoginContract.View {
-
-    //lateinit var presenter: LoginPresenter
-    //var presenter: LoginContract.Presenter? = LoginPresenter(this)
-
+class LoginActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         this.addFragment()
-        //presenter.presenterGetData("eee","ppppp")
-
-
     }
 
     private fun addFragment() {
