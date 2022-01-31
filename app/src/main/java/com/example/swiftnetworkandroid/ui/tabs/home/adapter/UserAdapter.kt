@@ -1,4 +1,4 @@
-package com.example.swiftnetworkandroid.adapter
+package com.example.swiftnetworkandroid.ui.tabs.home.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -30,7 +30,7 @@ class UserAdapter(var user:List<User>): RecyclerView.Adapter<UserAdapter.UserHol
         holder.render(user[position])
     }
 
-    class UserHolder(val view: View):RecyclerView.ViewHolder(view) {
+    class UserHolder(val view: View): RecyclerView.ViewHolder(view) {
         lateinit var username: TextView
         lateinit var fullname: TextView
         lateinit var imageProfile: CircleImageView

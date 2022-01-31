@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SwiftNetworkAndroid">
-        <activity android:name=".ui.general.tabs.TabsActivity"></activity>
+        <activity android:name=".ui.tabs.TabsActivity"></activity>
 
         <!--<activity android:theme="@style/Theme.SwiftNetworkAndroid.NoActionBar"></activity>-->
         <!-- <activity android:name=".ui.omboarding.MainActivity"> -->

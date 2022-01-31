@@ -1,22 +1,32 @@
-package com.example.swiftnetworkandroid.ui.general.tabs
+package com.example.swiftnetworkandroid.ui.tabs
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.swiftnetworkandroid.R
-import com.example.swiftnetworkandroid.ui.general.tabs.fragment.ExploreFragment
-import com.example.swiftnetworkandroid.ui.general.tabs.fragment.HomeFragment
-import com.example.swiftnetworkandroid.ui.general.tabs.fragment.NotificationFragment
-import com.example.swiftnetworkandroid.ui.general.tabs.fragment.ProfileFragment
+import com.example.swiftnetworkandroid.ui.tabs.explore.fragment.ExploreFragment
+import com.example.swiftnetworkandroid.ui.tabs.home.fragment.HomeFragment
+import com.example.swiftnetworkandroid.ui.tabs.notification.fragment.NotificationFragment
+import com.example.swiftnetworkandroid.ui.tabs.profile.fragment.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class TabsActivity : AppCompatActivity() {
 
     lateinit var navigation: BottomNavigationView
 
+    private var nombre: String? = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tab)
+
+
+        intent.extras?.let { bundle ->
+            nombre = bundle.getString("nombre")
+            println("recibo dato de la actividad login")
+            println(nombre)
+        }
+
 
         val fragment = HomeFragment()
         openFragment(fragment)

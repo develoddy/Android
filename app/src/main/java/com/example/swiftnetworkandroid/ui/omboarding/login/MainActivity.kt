@@ -7,7 +7,8 @@ import androidx.fragment.app.commit
 import com.example.swiftnetworkandroid.R
 import com.example.swiftnetworkandroid.ui.omboarding.fragment.LoginFragment
 
-//TODO: Activity
+
+/*
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         this.addFragment()
     }
 
-    //TODO: Add fragment LoginFragment.
+
     private fun addFragment() {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    /*
+
     private fun configureText() {
         email = findViewById(R.id.email_et)
         password = findViewById(R.id.password_et)
@@ -90,5 +91,6 @@ class MainActivity : AppCompatActivity() {
         println("click registration.....")
         startActivity(Intent(this, RegistrationViewController::class.java))
     }
-    */
+
 }
+*/

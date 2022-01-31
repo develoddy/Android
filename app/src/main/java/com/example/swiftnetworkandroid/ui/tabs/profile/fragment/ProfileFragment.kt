@@ -1,10 +1,10 @@
-package com.example.swiftnetworkandroid.ui.general.tabs.fragment
+package com.example.swiftnetworkandroid.ui.tabs.profile.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.swiftnetworkandroid.R
 
-class ProfileFragment : Fragment( R.layout.fragment_profile ) {
+class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     // TODO: Rename and change types of parameters
     override fun onCreate(savedInstanceState: Bundle?) {

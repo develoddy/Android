@@ -1,10 +1,12 @@
 package com.example.swiftnetworkandroid.ui.omboarding.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
@@ -16,6 +18,7 @@ import com.example.swiftnetworkandroid.viewmodel.LoginViewModel
 import com.example.swiftnetworkandroid.viewmodel.LoginViewModelFactory
 import com.example.swiftnetworkandroid.repository.login.LoginRepositoryImpl
 import com.example.swiftnetworkandroid.repository.RetrofitClient
+import com.example.swiftnetworkandroid.ui.tabs.TabsActivity
 
 //TODO: Fragment
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -65,19 +68,27 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             email = view.findViewById(R.id.email_et)
             password = view.findViewById(R.id.password_et)
 
-            val email    = this.email.text.toString()
+            val email = this.email.text.toString()
             val password = this.password.text.toString()
 
             viewModel.fetchUserToken(email, password).observe(viewLifecycleOwner, Observer { result ->
-                when( result ) {
+                when(result) {
                     is Resource.Loading -> {
                         Log.d("LiveData", "Loading...")
                     }
                     is Resource.Success -> {
                         Log.d("LiveData", "${result.data}")
+                        requireActivity().run {
+                            val intent = Intent(this, TabsActivity::class.java)
+                            intent.putExtra("nombre", "Puedo enviar datos a la Activity Tabs")
+                            startActivity(intent)
+                            finish()
+                        }
+
                     }
                     is Resource.Failure -> {
                         Log.d("LiveData", "${result.exception}")
+                        Toast.makeText(activity, "!Email or password incorrect!", Toast.LENGTH_SHORT).show()
                     }
                 }
             })
