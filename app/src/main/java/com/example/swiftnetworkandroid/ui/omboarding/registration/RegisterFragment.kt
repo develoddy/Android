@@ -1,4 +1,4 @@
-package com.example.swiftnetworkandroid.ui.omboarding.fragment
+package com.example.swiftnetworkandroid.ui.omboarding.registration
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

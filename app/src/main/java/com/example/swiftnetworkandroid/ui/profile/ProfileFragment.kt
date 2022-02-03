@@ -1,4 +1,4 @@
-package com.example.swiftnetworkandroid.ui.tabs.profile.fragment
+package com.example.swiftnetworkandroid.ui.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package com.example.swiftnetworkandroid.viewmodel
+package com.example.swiftnetworkandroid.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -7,13 +7,10 @@ import com.example.swiftnetworkandroid.core.Resource
 import com.example.swiftnetworkandroid.repository.login.LoginRepository
 import kotlinx.coroutines.Dispatchers
 
-//TODO: ViewModel -> Repository
+// TODO: ViewModel
 class LoginViewModel(private val repo: LoginRepository): ViewModel() {
 
-    // TODO: SE LLAMA A LA INTERFAZ/REPOSITORY
     fun fetchUserToken( email:String, password:String ) = liveData( Dispatchers.IO ) {
-        // It is necessary to communicate in sight that there are 3 types of status.
-        // We notify the user that he is loading the data.
         emit( Resource.Loading() )
         try {
             emit( Resource.Success( repo.getToken( email, password ) ) )

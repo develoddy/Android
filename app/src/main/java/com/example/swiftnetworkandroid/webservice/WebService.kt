@@ -1,14 +1,15 @@
-package com.example.swiftnetworkandroid.repository
+package com.example.swiftnetworkandroid.webservice
 
 import com.example.swiftnetworkandroid.application.AppConstants
 import com.example.swiftnetworkandroid.data.model.ResultLogin
+import com.example.swiftnetworkandroid.data.model.UserPost
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 
-// TODO: WEBSERVICE SERÁ EL ENCARGADO DE TRAER LA INFORMACIÓN DEL SERVIDOR.
+// TODO: WEBSERVICE
 interface WebService {
 
     // TODO: LOGIN
@@ -18,11 +19,9 @@ interface WebService {
 
 
     // TODO: HOME
-    suspend fun getUserPost()
-
-
-    // TODO: PROFILE
-    suspend fun getUserpost()
+    @Headers("Content-Length:0", "Host: develoddy.com", "User-Agent:PostmanRuntime/7.29.0", "Accept: */*")
+    @POST("home/userpost")
+    suspend fun getUserPost(@Header("Authorization") token: String?): UserPost
 }
 
 

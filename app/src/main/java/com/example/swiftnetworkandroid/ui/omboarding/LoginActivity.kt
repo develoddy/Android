@@ -1,11 +1,11 @@
-package com.example.swiftnetworkandroid.ui.omboarding.login
+package com.example.swiftnetworkandroid.ui.omboarding
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import com.example.swiftnetworkandroid.R
-import com.example.swiftnetworkandroid.ui.omboarding.fragment.LoginFragment
+import com.example.swiftnetworkandroid.ui.omboarding.login.LoginFragment
 
 class LoginActivity: AppCompatActivity() {
 
