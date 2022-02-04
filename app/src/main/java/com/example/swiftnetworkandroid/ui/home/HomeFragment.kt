@@ -24,11 +24,12 @@ import com.example.swiftnetworkandroid.presentation.HomeViewModelFactory
 // TODO: Fragment
 class HomeFragment: Fragment(R.layout.fragment_home), PostAdapter.OnHomeClickListener {
 
-    // Properties
+    /**
+     * Properties
+     */
     private lateinit var sessionManager: SessionManager
     private lateinit var binding: FragmentHomeBinding
     private lateinit var recyclerView: RecyclerView
-
     private val viewModel by viewModels<HomeViewModel>{
         HomeViewModelFactory(
             HomeRepositoryImpl(
@@ -45,10 +46,7 @@ class HomeFragment: Fragment(R.layout.fragment_home), PostAdapter.OnHomeClickLis
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        requireActivity().run {
-            sessionManager = SessionManager(this)
-        }
-
+        requireActivity().run { sessionManager = SessionManager(this) }
         viewModel.fetchUserPost("Bearer ${sessionManager.fetchAuthToken()}").observe(viewLifecycleOwner, Observer { result ->
             when(result) {
                 is Resource.Loading -> {
@@ -67,10 +65,11 @@ class HomeFragment: Fragment(R.layout.fragment_home), PostAdapter.OnHomeClickLis
                 }
             }
         })
-
     }
 
-    // Click to Post.
+    /**
+     * Click Post.
+     */
     override fun onHeaderClick(post: Post) {
         Log.d("post", "onPostClick: $post")
     }
