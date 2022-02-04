@@ -1,13 +1,7 @@
 package com.example.swiftnetworkandroid.data.model
 
 //TODO: Transforma un objeto Json a un objeto User, por ejemplo.
-data class ResultLogin (
-    val token: String
-    //val token_type: String,
-    //val expires_in: Int,
-    //val usertoken: User,
-    //val usertoken: List<User> = listOf(),
-)
+data class ResultLogin (val token: String, val token_type: String, val expires_in: Int, val usertoken: User)
 
 data class User(
     val id: Int,

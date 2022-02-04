@@ -12,11 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SwiftNetworkAndroid">
-        <activity android:name=".ui.general.tabs.TabsActivity"></activity>
+        <activity android:name=".ui.TabsActivity"></activity>
 
         <!--<activity android:theme="@style/Theme.SwiftNetworkAndroid.NoActionBar"></activity>-->
         <!-- <activity android:name=".ui.omboarding.MainActivity"> -->
-        <activity android:name=".scenes.omboarding.login.LoginActivity">
+        <activity android:name=".ui.omboarding.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
